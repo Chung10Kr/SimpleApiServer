@@ -7,15 +7,16 @@ app.use(cors());
 app.get('/set/menu', (req, res) => {
     console.log('menu')
     console.log( (req.body || req.query) )
+
     let result = {
         "menu":[
-            { name : 'Main' , src : '/main'  },
-            { name : 'Ajax' , src : '/ajax'  },
-            { name : 'Setting' , src : '/set'  },
+            { name : 'Setting' , src : '/set' },
+            { name : 'Ajax' , src : '/ajax'   },
+            { name : 'Paging' , src : '/paging' }
         ]
     };
-    res.json(result)
 
+    res.json(result)
 })
 
 
@@ -25,8 +26,9 @@ app.get('/sample/name', (req, res) => {
     let result = {
         "name" : "get"
     };
-    res.json(result)
-
+    setTimeout(function(){
+        res.json(result)
+    },3000)
 })
 
 app.post('/sample/name', (req, res) => {
@@ -39,7 +41,9 @@ app.post('/sample/name', (req, res) => {
             {v:"J" , t:"Jeju"},
         ]
     };
-    res.json(result)
+    setTimeout(function(){
+        res.json(result)
+    },3000)
 
 })
 
